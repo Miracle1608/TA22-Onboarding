@@ -1,0 +1,49 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif; /* Set global font */
+    background-color: #f0f0f0; /* Set background color */
+    margin: 0; /* Set page margin to 0 to remove default margin */
+    padding: 0; /* Set page padding to 0 to remove default padding */
+}
+
+/* Header styles */
+header {
+    background-color: #333; /* Set header background color */
+    color: #fff; /* Set header text color */
+    padding: 10px; /* Set header padding to 10 pixels */
+    text-align: center; /* Align header text to the center */
+}
+
+/* Main content area styles */
+main {
+    padding: 20px; /* Set main content area padding to 20 pixels */
+}
+
+/* Paragraph styles */
+p {
+    line-height: 1.6; /* Set line height of paragraphs to 1.6 for better readability */
+}
+
+/* Link styles */
+a {
+    color: #007bff; /* Set link color to blue (#007bff) */
+    text-decoration: none; /* Remove underline from links */
+}
+
+a:hover {
+    text-decoration: underline; /* Display underline on links when hovering */
+}
+
+/* Button styles */
+button {
+    background-color: #007bff; /* Set button background color to blue (#007bff) */
+    color: #fff; /* Set button text color to white (#fff) */
+    padding: 10px 20px; /* Set button padding to 10 pixels top/bottom and 20 pixels left/right */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Set button border radius to create rounded corners */
+    cursor: pointer; /* Set cursor to pointer to indicate clickable element */
+}
+
+button:hover {
+    background-color: #0056b3; /* Display darker blue background when hovering */
+}
