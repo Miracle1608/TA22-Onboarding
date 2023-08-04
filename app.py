@@ -1,29 +1,27 @@
 from flask import Flask, render_template, request
-#from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 import urllib
 from calculate import calculate_carbon_emissions
 
-
-
 app = Flask(__name__)
 
-params = urllib.parse.quote_plus("""
-Driver={ODBC Driver 18 for SQL Server};
-Server=tcp:week3proj.database.windows.net,1433;
-Database=ta22;
-Uid=kcha0109;
-Pwd=Monash@2024;
-Encrypt=yes;
-TrustServerCertificate=no;
-Connection Timeout=30;
-""")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://kcha0109:Monash@2024@week3proj.database.windows.net:1433/ta22'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Setup SQL Alchemy with the connection string
-app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc:///?odbc_connect=%s" % params
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional: Suppress warning
+db = SQLAlchemy(app)
 
-# Create an instance of SQL Alchemy
-#db = SQLAlchemy(app)
+class SuburbData(db.Model):
+    __tablename__ = 'SuburbData'
+
+    postcode = db.Column(db.Integer, primary_key=True)
+    suburb = db.Column(db.String(128))
+    latitude = db.Column(db.Float)
+    longitude = db.Column(db.Float)
+
+    def __repr__(self):
+        return f'<Suburb {self.suburb}>'
+
+
 
 
 @app.route('/')
