@@ -2,7 +2,7 @@
 
 def calculate_carbon_emissions(electricity_usage, gas_usage):
     # Constants for carbon emissions factor (CO2 emissions per unit)
-    electricity_emission_factor = 0.5  # Assume 0.5 kg CO2 per kWh
+    electricity_emission_factor = 0.85  # Assume 0.85 kg CO2 per kWh
     gas_emission_factor = 1.9  # Assume 1.9 kg CO2 per m³
 
     # Calculate carbon emissions for electricity and gas usage
