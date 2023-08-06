@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparison</title>
+    <style>
+        header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: left;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20%;
+        }
+        table {
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Comparison</h1>
+    </header>
+        <table >
+          <thead>
+              <tr>
+                  <th></th>
+                  <th>Suburb</th>
+                  <th>Average Carbon Emission Of Elec</th>
+                  <th>Average Carbon Emission Of Elec Per Customer</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Highest</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td>Lowest</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+          </tbody>
+
+      </table>
+
+     <div>
+        <h1></h1>
+         <h1></h1>
+    </div>
+    <table>
+        <thead>
+              <tr>
+                  <th></th>
+                  <th>Suburb</th>
+                  <th>Average Carbon Emission Of Gas</th>
+                  <th>Average Carbon Emission Of Gas Per Customer</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Highest</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td>Lowest</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+          </tbody>
+    </table>
+    <div>
+        <h1></h1>
+    </div>
+    <!--   Dropdown table-->
+      <select id="suburbDropdown">
+          <option value="value1">Lysterfield South</option>
+          <option value="value1">Doveton and Eumemmerring</option>
+          <option value="value1">Endeavour Hills</option>
+          <option value="value1">Hallam</option>
+          <option value="value1">Narre Warren North</option>
+          <option value="value1">Narre Warren and Narre Warren South</option>
+          <option value="value1">Berwick and Harkaway</option>
+          <option value="value1">Beaconsfield</option>
+          <option value="value1">Pearcedale/option>
+          <option value="value1">Lynbrook and Lyndhurst</option>
+          <option value="value1">Hampton Park</option>
+          <option value="value1">Botanic Ridge, Cannons Creek, Cranbourne, Cranbourne East, Cranbourne North, Cranbourne South, Cranbourne West, Devon Meadows and Junction Village</option>
+          <option value="value1">Clyde and Clyde North</option>
+          <option value="value1">Blind Bight , Tooradin and Warneet</option>
+
+      </select>
+    <table style="width:88%; border:10px; cellspacing:20">
+            <thead>
+                  <tr>
+                      <th></th>
+                      <th>Suburb</th>
+                      <th>Average Carbon Emission </th>
+                      <th>Average Carbon Emission Per Customer</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Electricity</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>Gas</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+              </tbody>
+        </table>
+
+</body>
+ <script>
+        // JavaScript code to fetch data from the server (Python) and populate the dropdown
+        fetch('/get_suburbs')
+        .then(response => response.json())
+        .then(data => {
+            const dropdown = document.getElementById('suburbDropdown');
+            data.forEach(suburb => {
+                const option = document.createElement('option');
+                option.value = SuburbData.postcode; // or any other unique identifier from the database
+                option.textContent = SuburbData.suburb; // the column value you want to display in the dropdown
+                dropdown.appendChild(option);
+            });
+        });
+    </script>
+</html>

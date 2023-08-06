@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Selection</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #000;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        select {
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: blue;
+        }
+        input[type=submit] {
+            width: 5%;
+            background-color: tomato;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+     <!-- Highest and Lowest Emissions for Electricity -->
+     <table style="width:50%">
+        <tr>
+            <th></th>
+            <th>Suburb</th>
+            <th>Average Carbon Emission Of Elec</th>
+            <th>Average Carbon Emission Of Elec Per Customer</th>
+        </tr>
+        <tr>
+            <td>Highest</td>
+            <td>{{ highest_elec1['suburb'] }}</td>
+            <td>{{ highest_elec1.total_emissions_kg_co2e }}</td>
+            <td> {{ highest_elec1.average_emissions_per_customer_kg_co2e }}</td>
+        </tr>
+        <tr>
+            <td>Lowest</td>
+            <td>{{ lowest_elec1['suburb'] }}</td>
+            <td>{{ lowest_elec1.total_emissions_kg_co2e }}</td>
+            <td>{{ lowest_elec1.average_emissions_per_customer_kg_co2e }}</td>
+        </tr>
+    </table>
+
+    <!-- Highest and Lowest Emissions for Gas -->
+    <table style="width:50%">
+        <tr>
+            <th></th>
+            <th>Suburb</th>
+            <th>Average Carbon Emission Of Gas</th>
+            <th>Average Carbon Emission Of Gas Per Customer</th>
+        </tr>
+        <tr>
+            <td>Highest</td>
+            <td>{{ highest_gas1['suburb'] }}</td>
+            <td>{{ highest_gas1.total_emissions_kg_co2e }}</td>
+            <td>{{ highest_gas1.average_emissions_per_customer_kg_co2e }}</td>
+        </tr>
+        <tr>
+            <td>Lowest</td>
+            <td>{{ lowest_gas1['suburb'] }}</td>
+            <td>{{ lowest_gas1.average_emissions_per_customer_kg_co2e }}</td>
+            <td>{{ lowest_gas1.average_emissions_per_customer_kg_co2e }}</td>
+        </tr>
+    </table>
+    <form method="POST">
+        <select name="suburb">
+            {% for suburb in suburbs %}
+                <option value="{{ suburb }}">{{ suburb }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    {% if table_data %}
+        <table  style="width:50%">
+            <tr>
+                <th></th>
+                <th>Suburb</th>
+                <th>Average Carbon Emission</th>
+                <th>Average Carbon Emission Per Customer</th>
+            </tr>
+            <tr>
+                <td>Electricity</td>
+                <td>{{ table_data['Suburb'] }}</td>
+                <td>{{ table_data['Average Carbon Emission Electricity'] }}</td>
+                <td>{{ table_data['Average Carbon Emission Per Customer Electricity'] }}</td>
+            </tr>
+            <tr>
+                <td>Gas</td>
+                <td>{{ table_data['Suburb'] }}</td>
+                <td>{{ table_data['Average Carbon Emission Gas'] }}</td>
+                <td>{{ table_data['Average Carbon Emission Per Customer Gas'] }}</td>
+            </tr>
+        </table>
+    {% endif %}
+</body>
+</html>
