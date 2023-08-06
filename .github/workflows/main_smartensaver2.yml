@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set up Python version
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: '3.9'
 
@@ -26,12 +26,13 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-      
+
       - name: Install dependencies
-        run: pip install -r requirements.txt
-        
+        run: |
+          pip install Flask Flask-SQLAlchemy SQLAlchemy
+
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      
+
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
@@ -61,3 +62,4 @@ jobs:
           app-name: 'smartensaver2'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E74B98C45B9046BD836E815D2AF3A0E7 }}
+
