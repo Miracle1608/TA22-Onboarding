@@ -47,3 +47,71 @@ button {
 button:hover {
     background-color: #0056b3; /* Display darker blue background when hovering */
 }
+/* Assuming the container has display: flex; */
+.container {
+    display: flex;
+    justify-content: space-between; /* Align items on each end of the container */
+    align-items: center;
+    padding: 20px;
+}
+
+.slogan {
+    flex: 1; /* Allow the slogan to take the remaining space */
+    text-align: center; /* Center the slogan text horizontally */
+}
+
+.slogan p {
+    font-size: 30px; /* Change the font size to your desired value */
+    color: #550505; /* Change the text color to your desired value (e.g., #333 is dark gray) */
+    margin: 0; /* Remove default margin to avoid additional spacing */
+}
+
+.image-container {
+  margin-right: 20px; /* Add spacing between the image and the text */
+}
+
+.image-container img {
+  max-width: 600px; /* Adjust the image width as needed */
+  max-height: 600px; /* Adjust the image height as needed */
+}
+
+.text-container {
+  flex: 1; /* Allow the text to take the remaining space */
+}
+
+.text-container p {
+  font-size: 30px; /* Change the font size to your desired value */
+  color: #000000; /* Change the text color to your desired value (e.g., #333 is dark gray) */
+  margin: 0; /* Remove default margin to avoid additional spacing */
+}
+/* Style the button container */
+.button-container {
+    display: flex;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1aff00;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+}
+/* Add some spacing between the buttons */
+.menu li {
+    margin-right: 10px;
+}
+.spacer {
+    height: 2000px; /* Adjust the height as needed */
+}
+
+/* Style for the calculator form */
+.calculator-form {
+  text-align: center; /* Center the form content */
+  font-size: 30px; /* Change the font size to your desired value */
+}
+/* Optionally, align the buttons vertically in the middle */
+.menu {
+    display: flex;
+    align-items: center;
+}

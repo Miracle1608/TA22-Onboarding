@@ -8,29 +8,37 @@
 <body>
   {% extends "template.html" %}
   {% block content %}
-  <h1> Smart EnSaver </h1>
-  <p> Save the planet. Calculate your carbon footprint </p>
+  <div class="slogan">
+    <p>"for your better tomorrow save energy today"</p>
+  </div>
+  <div class="container">
+      <div class="image-container">
+          <img src="{{ url_for('static', filename='images/image.jpg') }}" height="500" width="500" alt="Image Description">
+      </div>
+      <div class="text-container">
+          <p>Want to compare emissions of your suburbs</p>
+          <p>or</p>
+          <p>Calculate your Carbon footprint?</p>
+          <p>or you can choose from the options below</p>
+          <a href="#emissions" class="btn">Emissions</a>
+          <a href="#carbonfootprint" class="btn">Carbonfootprint</a>
+      </div>
+  </div>
+  <section id="emissions">
+      <h2 class="slogan">Compare your Suburb emission with highest and lowest</h2>
+      <div class="spacer"></div>
+  </section>
 
-  <form method="post" action="/calculate">
-    <label for="electricity">Electricity Usage (kWh):</label>
-    <input type="number" id="electricity" name="electricity" required><br>
-
-    <label for="gas">Gas Usage (m³):</label>
-    <input type="number" id="gas" name="gas" required><br>
-
-    <!-- New dropdown for postcode -->
-    <label for="postcode">Suburb Postcode:</label>
-    <select id="postcode" name="postcode">
-      {% for suburb in suburbs %}
-      <option value="{{ suburb.postcode }}">{{ suburb.postcode }}</option>
-      {% endfor %}
-    </select><br>
-
-    <button type="submit">Calculate</button>
-  </form>
-
-
-
+  <section id="carbonfootprint">
+        <h2 class="slogan">check your carbon footprint</h2>
+        <form method="post" action="/calculate"class="calculator-form">
+          <label for="electricity">Electricity Usage (kWh):</label>
+          <input type="number" id="electricity" name="electricity" required><br>
+          <label for="gas">Gas Usage (m³):</label>
+          <input type="number" id="gas" name="gas" required><br>
+          <button type="submit">Calculate</button>
+        </form>
+  </section>
 
   {% endblock %}
 </body>
