@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
-    <title>Emissions Data</title>
+  <meta charset="utf-8">
+  <title>Smart ENSaver</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
 </head>
 <body>
-    <h1>Emissions for postcode {{ postcode }}</h1>
-    <p>Average Electricity Emissions (3 years): {{ avg_elec_emissions }}</p>
-    <p>Average Gas Emissions (3 years): {{ avg_gas_emissions }}</p>
+  {% extends "template.html" %}
+  {% block content %}
+
+  <h1> Emissions data for {{ suburb.suburb }} </h1>
+
+  <h2> Gas Emissions </h2>
+  <p> Average emissions per customer over the past 3 years: {{ avg_gas_emissions }} kg CO2e </p>
+
+  <h2> Electricity Emissions </h2>
+  <p> Average emissions per customer over the past 3 years: {{ avg_elec_emissions }} kg CO2e </p>
+
+  {% endblock %}
 </body>
 </html>

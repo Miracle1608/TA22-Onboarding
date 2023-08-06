@@ -82,7 +82,7 @@ def home():
     suburbs = SuburbData.query.all()  # Query the database for all suburbs
     return render_template("home.html", suburbs=suburbs)  # Pass the suburbs to the template
 
-@app.route('/emissions/<int:postcode>')
+@app.route('/emissions', methods=['POST'])
 def emissions(postcode):
     try:
         suburb_data = SuburbData.query.filter_by(postcode=postcode).first()

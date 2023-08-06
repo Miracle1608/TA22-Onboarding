@@ -24,10 +24,19 @@
           <a href="#carbonfootprint" class="btn">Carbonfootprint</a>
       </div>
   </div>
+  <---- modified code here---->
   <section id="emissions">
-      <h2 class="slogan">Compare your Suburb emission with highest and lowest</h2>
-      <div class="spacer"></div>
-  </section>
+    <h2 class="slogan">Compare your Suburb emission with highest and lowest</h2>
+    <div class="spacer"></div>
+    <form method="post" action="/emissions">
+        <select name="postcode">
+            {% for suburb in suburbs %}
+            <option value="{{ suburb.postcode }}">{{ suburb.suburb }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Get Emissions</button>
+    </form>
+    </section>
 
   <section id="carbonfootprint">
         <h2 class="slogan">check your carbon footprint</h2>
@@ -39,6 +48,7 @@
           <button type="submit">Calculate</button>
         </form>
   </section>
+
 
   {% endblock %}
 </body>
