@@ -18,6 +18,14 @@
     <label for="gas">Gas Usage (m³):</label>
     <input type="number" id="gas" name="gas" required><br>
 
+    <!-- New dropdown for postcode -->
+    <label for="postcode">Suburb Postcode:</label>
+    <select id="postcode" name="postcode">
+      {% for suburb in suburbs %}
+      <option value="{{ suburb.postcode }}">{{ suburb.postcode }}</option>
+      {% endfor %}
+    </select><br>
+
     <button type="submit">Calculate</button>
   </form>
 
