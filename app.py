@@ -1,3 +1,4 @@
+import numpy as np
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import urllib
@@ -107,12 +108,10 @@ def home():
         filtered_data_gas = GasEmissionsData[GasEmissionsData['suburb'] == selected_suburb]
         table_data = {
             'Suburb': selected_suburb,
-            'Average Carbon Emission Electricity': filtered_data_elec['total_emissions_kg_co2e'].mean(),
-            'Average Carbon Emission Per Customer Electricity': filtered_data_elec[
-                'average_emissions_per_customer_kg_co2e'].mean(),
-            'Average Carbon Emission Gas': filtered_data_gas['total_emissions_kg_co2e'].mean(),
-            'Average Carbon Emission Per Customer Gas': filtered_data_gas[
-                'average_emissions_per_customer_kg_co2e'].mean(),
+            'Average Carbon Emission Electricity': np.round(filtered_data_elec['total_emissions_kg_co2e'].mean()),
+            'Average Carbon Emission Per Customer Electricity': np.round(filtered_data_elec['average_emissions_per_customer_kg_co2e'].mean()),
+            'Average Carbon Emission Gas': np.round(filtered_data_gas['total_emissions_kg_co2e'].mean()),
+            'Average Carbon Emission Per Customer Gas': np.round(filtered_data_gas['average_emissions_per_customer_kg_co2e'].mean()),
         }
 
     return render_template('home.html', suburbs=suburbs, table_data=table_data,
