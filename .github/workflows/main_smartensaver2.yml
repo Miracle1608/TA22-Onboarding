@@ -29,7 +29,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install Flask SQLAlchemy pymssql pandas pyodbc sqlalchemy pymssql flask-SQLAchemy
+          pip install Flask SQLAlchemy pymssql pandas pyodbc sqlalchemy pymssql flask_sqlalchemy
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
