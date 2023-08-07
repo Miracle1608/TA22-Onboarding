@@ -62,4 +62,3 @@ jobs:
           app-name: 'smartensaver2'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E74B98C45B9046BD836E815D2AF3A0E7 }}
-
