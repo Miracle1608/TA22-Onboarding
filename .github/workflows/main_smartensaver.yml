@@ -59,7 +59,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'smartensaver2'
+          app-name: 'smartensaver'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E74B98C45B9046BD836E815D2AF3A0E7 }}
 
