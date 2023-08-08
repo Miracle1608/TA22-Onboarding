@@ -1,6 +1,6 @@
 Flask
 SQLAlchemy
-pymssql==2.2.3
+pymssql====2.1.5
 pandas
 pyodbc
 Flask-SQLAlchemy
