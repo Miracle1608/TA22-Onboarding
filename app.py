@@ -1,4 +1,5 @@
 import numpy as np
+import pyodbc
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import urllib
@@ -13,11 +14,14 @@ import pandas as pd
 
 app = Flask(__name__)
 
-params = urllib.parse.quote_plus("DRIVER={ODBC Driver 18 for SQL Server};"
-                                 "SERVER=week3proj.database.windows.net;"
-                                 "DATABASE=ta22;"
-                                 "UID=kcha0109;"
-                                 "PWD=Monash@2024;")
+# params = urllib.parse.quote_plus("DRIVER={ODBC Driver 18 for SQL Server};"
+#                                  "SERVER=week3proj.database.windows.net;"
+#                                  "DATABASE=ta22;"
+#                                  "UID=kcha0109;"
+#                                  "PWD=Monash@2024;")
+
+params = 'DRIVER={ODBC Driver 18 for SQL Server};SERVER=week3proj.database.windows.net;DATABASE=ta22;UID=kcha0109;PWD=Monash@2024;'
+
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc:///?odbc_connect=%s" % params
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -82,16 +86,20 @@ class GasEmissionsData(db.Model):
     average_intensity_household_per_annum = db.Column(db.Float)
 
 
-server = 'week3proj.database.windows.net'
-database = 'ta22'
-username = 'kcha0109'
-password = 'Monash@2024'
+# server = 'week3proj.database.windows.net'
+# database = 'ta22'
+# username = 'kcha0109'
+# password = 'Monash@2024'
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    conn = pymssql.connect(server=server, user=username, password=password, database=database)
+    # [x for x in pyodbc.drivers() if x.startswith('Microsoft Access Driver')]
+    conn = pyodbc.connect(params)
+    # conn = pymssql.connect(server=server, user=username, password=password, database=database)
     ElecEmissionsData = pd.read_sql('SELECT * FROM ElecEmissionsData', conn)
     GasEmissionsData = pd.read_sql('SELECT * FROM GasEmissionsData', conn)
+
+    conn.close
 
     suburbs = ElecEmissionsData['suburb'].unique().tolist()
     highest_elec1 = ElecEmissionsData.loc[ElecEmissionsData['total_emissions_kg_co2e'].idxmax()]
