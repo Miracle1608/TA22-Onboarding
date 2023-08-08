@@ -3,3 +3,4 @@ SQLAlchemy
 pymssql
 pandas
 pyodbc
+Flask-SQLAlchemy
