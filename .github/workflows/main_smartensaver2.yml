@@ -30,7 +30,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install Flask SQLAlchemy pymssql pandas pyodbc sqlalchemy pymssql flask_sqlalchemy
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
@@ -63,3 +62,4 @@ jobs:
           app-name: 'smartensaver2'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E74B98C45B9046BD836E815D2AF3A0E7 }}
+
