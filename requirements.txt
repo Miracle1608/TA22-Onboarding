@@ -1,0 +1,7 @@
+Flask
+SQLAlchemy
+pandas
+pyodbc
+Flask-SQLAlchemy
+numpy
+pymssql
