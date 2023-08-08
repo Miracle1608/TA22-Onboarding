@@ -4,4 +4,4 @@ pandas
 pyodbc
 Flask-SQLAlchemy
 numpy
-pymssql==2.2.3
+pymssql
