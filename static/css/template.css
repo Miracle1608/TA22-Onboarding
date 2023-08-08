@@ -92,7 +92,7 @@ button:hover {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #1aff00;
+    background-color: #0051ff;
     color: #fff;
     text-decoration: none;
     margin: 10px;
@@ -102,13 +102,26 @@ button:hover {
     margin-right: 10px;
 }
 .spacer {
-    height: 2000px; /* Adjust the height as needed */
+    height: 400px; /* Adjust the height as needed */
 }
 
 /* Style for the calculator form */
 .calculator-form {
   text-align: center; /* Center the form content */
   font-size: 30px; /* Change the font size to your desired value */
+}
+
+#emissions {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-direction: column; /* Stack items vertically */
+    padding: 20px;
+}
+
+/* Apply styles to center the content inside the included file */
+.centered-content {
+    text-align: center; /* Center text */
 }
 /* Optionally, align the buttons vertically in the middle */
 .menu {
