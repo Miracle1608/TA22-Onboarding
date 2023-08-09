@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 import urllib
 from calculate import calculate_carbon_emissions
 from sqlalchemy import func
-import pymssql
+#import pymssql
 from flask import Flask, render_template, request,jsonify
 from flask_sqlalchemy import SQLAlchemy
 import urllib
@@ -94,12 +94,12 @@ class GasEmissionsData(db.Model):
 @app.route('/', methods=['GET', 'POST'])
 def home():
     # [x for x in pyodbc.drivers() if x.startswith('Microsoft Access Driver')]
-    conn = pyodbc.connect(params)
+    conn = db.engine.connect()
     # conn = pymssql.connect(server=server, user=username, password=password, database=database)
     ElecEmissionsData = pd.read_sql('SELECT * FROM ElecEmissionsData', conn)
     GasEmissionsData = pd.read_sql('SELECT * FROM GasEmissionsData', conn)
 
-    conn.close
+    conn.close()
 
     suburbs = ElecEmissionsData['suburb'].unique().tolist()
     highest_elec1 = ElecEmissionsData.loc[ElecEmissionsData['total_emissions_kg_co2e'].idxmax()]
