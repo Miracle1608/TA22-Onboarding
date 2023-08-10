@@ -7,13 +7,19 @@
 <body>
   {% extends "Template.html" %}
   {% block content %}
-  <h1>Smart EnSaver - Result</h1>
-  <p>Your total carbon emissions: </p>
-  <h1>{{ total_emissions }} kg CO2</h1>
+  <div class="centered-content">
+    <h1>Smart EnSaver - Result</h1>
+    <p>Your total carbon emissions: </p>
+    <h1>{{ total_emissions }} kg CO2</h1>
+    <p>1 kg CO2 Emissions equivalent to driving a car for about 4 kilometers (2.5 miles).</p>
+    <p>1 kg CO2 Requires a tree to grow for about 8 days to offset 1 kg CO2 emissions.</p>
+    <p>10 kg CO2 Emissions comparable to the emissions from driving a car for approximately 40 kilometers (25 miles).</p>
+    <p>100 kg CO2 Emissions produced by the energy consumption of a desktop computer running for about 300 hours.</p>
+    <p>1,000 kg CO2 Emissions equivalent to the emissions from using an average desktop computer for about 2,000 hours.</p>
 
-  <!-- Add a back button to return to the home page -->
-  <a href="/">Back</a>
-
+    <!-- Add a back button to return to the home page -->
+    <a href="/">Back</a>
+  </div>
   {% endblock %}
 </body>
 </html>
