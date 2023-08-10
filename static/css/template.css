@@ -1,7 +1,7 @@
 /* Global styles */
 body {
     font-family: Arial, sans-serif; /* Set global font */
-    background-color: #f0f0f0; /* Set background color */
+    background-color: #ffffff; /* Set background color */
     margin: 0; /* Set page margin to 0 to remove default margin */
     padding: 0; /* Set page padding to 0 to remove default padding */
 }
@@ -54,12 +54,24 @@ button:hover {
     align-items: center;
     padding: 20px;
 }
+.container1 {
+    display: flex;
+    justify-content: center; /* Align items on each end of the container */
+    align-items: center;
+    padding: 20px;
+}
 
 .slogan {
     flex: 1; /* Allow the slogan to take the remaining space */
     text-align: center; /* Center the slogan text horizontally */
 }
 
+.slogan2 {
+    font-size: 60px; /* Change the font size to your desired value */
+    text-align: center;
+    color: #000000; /* Change the text color to your desired value (e.g., #333 is dark gray) */
+    margin: 0; /* Remove default margin to avoid additional spacing */
+}
 .slogan p {
     font-size: 30px; /* Change the font size to your desired value */
     color: #550505; /* Change the text color to your desired value (e.g., #333 is dark gray) */
