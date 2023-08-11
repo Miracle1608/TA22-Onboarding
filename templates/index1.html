@@ -49,14 +49,14 @@
         <tr>
             <td>Highest</td>
             <td>{{ highest_elec1['suburb'] }}</td>
-            <td>{{ highest_elec1.total_emissions_kg_co2e }}</td>
-            <td> {{ highest_elec1.average_emissions_per_customer_kg_co2e }}</td>
+            <td>{{ highest_elec1.total_emissions_kg_co2e/12 }} kg</td>
+            <td> {{ highest_elec1.average_emissions_per_customer_kg_co2e/12 }} kg</td>
         </tr>
         <tr>
             <td>Lowest</td>
             <td>{{ lowest_elec1['suburb'] }}</td>
-            <td>{{ lowest_elec1.total_emissions_kg_co2e }}</td>
-            <td>{{ lowest_elec1.average_emissions_per_customer_kg_co2e }}</td>
+            <td>{{ lowest_elec1.total_emissions_kg_co2e/12 }} kg</td>
+            <td>{{ lowest_elec1.average_emissions_per_customer_kg_co2e/12 }} kg</td>
         </tr>
     </table>
 
@@ -71,14 +71,14 @@
         <tr>
             <td>Highest</td>
             <td>{{ highest_gas1['suburb'] }}</td>
-            <td>{{ highest_gas1.total_emissions_kg_co2e }}</td>
-            <td>{{ highest_gas1.average_emissions_per_customer_kg_co2e }}</td>
+            <td>{{ highest_gas1.total_emissions_kg_co2e/12 }} kg</td>
+            <td>{{ highest_gas1.average_emissions_per_customer_kg_co2e/12 }} kg</td>
         </tr>
         <tr>
             <td>Lowest</td>
             <td>{{ lowest_gas1['suburb'] }}</td>
-            <td>{{ lowest_gas1.average_emissions_per_customer_kg_co2e }}</td>
-            <td>{{ lowest_gas1.average_emissions_per_customer_kg_co2e }}</td>
+            <td>{{ lowest_gas1.average_emissions_per_customer_kg_co2e/12 }} kg</td>
+            <td>{{ lowest_gas1.average_emissions_per_customer_kg_co2e/12 }} kg</td>
         </tr>
     </table>
     <form method="POST">
@@ -100,14 +100,14 @@
             <tr>
                 <td>Electricity</td>
                 <td>{{ table_data['Suburb'] }}</td>
-                <td>{{ table_data['Average Carbon Emission Electricity'] }}</td>
-                <td>{{ table_data['Average Carbon Emission Per Customer Electricity'] }}</td>
+                <td>{{ table_data['Average Carbon Emission Electricity']/12 }} kg</td>
+                <td>{{ table_data['Average Carbon Emission Per Customer Electricity']/12 }} kg</td>
             </tr>
             <tr>
                 <td>Gas</td>
                 <td>{{ table_data['Suburb'] }}</td>
-                <td>{{ table_data['Average Carbon Emission Gas'] }}</td>
-                <td>{{ table_data['Average Carbon Emission Per Customer Gas'] }}</td>
+                <td>{{ table_data['Average Carbon Emission Gas']/12 }} kg</td>
+                <td>{{ table_data['Average Carbon Emission Per Customer Gas']/12 }} kg</td>
             </tr>
         </table>
     {% endif %}
